@@ -7,7 +7,7 @@ class TodoInput extends Component {
         return (
             <div className="card my-5">
             <div className="card card-header">
-                <h4>{editItem ? 'Edit Item' : 'Add Item'}</h4>
+                <h5>{editItem ? 'Edit Item' : 'Add Item'}</h5>
             </div>
             <div className="card card-body">
 

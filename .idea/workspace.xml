@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cc4216b4-c22a-4dec-9bd8-070ce1d5df25" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TodoInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TodoInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TodoItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TodoItem.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1584901145263</updated>
       <workItem from="1584901147193" duration="5272000" />
-      <workItem from="1584943857985" duration="27647000" />
+      <workItem from="1584943857985" duration="29534000" />
     </task>
     <task id="LOCAL-00001" summary="Complete Project">
       <created>1584974171817</created>
@@ -88,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584976459144</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Complete Project">
+      <created>1584976741092</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1584976741092</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,10 +111,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584901645005" />
-    <state x="474" y="44" key="CommitChangelistDialog2" timestamp="1584976458545">
+    <state x="474" y="44" key="CommitChangelistDialog2" timestamp="1584976740479">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="474" y="44" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584976458545" />
+    <state x="474" y="44" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584976740479" />
     <state x="794" y="386" key="Github.ShareDialog" timestamp="1584973802677">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -131,10 +139,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="151" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584944149005" />
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1584976465662">
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1584976747616">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584976465662" />
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584976747616" />
     <state x="52" y="240" key="run.anything.popup" timestamp="1584964233374">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
