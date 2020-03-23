@@ -142,9 +142,8 @@ class App extends Component {
                 <div className="row">
                     <div className="col mx-auto mt-4">
                         <h1 className="text-capitalize text-center">
-                            To-do App
+                            TO-DO APP
                         </h1>
-                        <div className="row">
                             <div className="card card-body mt-3">
                                 <p>To Add an Item to the list, just type the text in the Add Item input field and click
                                     Add button. To select an item to Edit, just click the icon with the pencil and
@@ -154,7 +153,6 @@ class App extends Component {
                                     be edited.
                                 </p>
                             </div>
-                        </div>
                         <div className="row">
                             <div className="col-md-6">
                                 <TodoInput
