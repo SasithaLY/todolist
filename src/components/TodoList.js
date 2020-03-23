@@ -7,7 +7,8 @@ class TodoList extends Component {
         const {items, clearList, handleDelete, handleSelection} = this.props;
 
         return (
-            <ul className="list-group my-5">
+            <div className="card card-body my-5">
+            <ul className="list-group ">
                 <h3 className="text-capitalize text-center">Item list</h3>
                 <div className="row my-3">
                     <div className="col">
@@ -29,6 +30,7 @@ class TodoList extends Component {
                 }
 
             </ul>
+            </div>
 
         );
     }

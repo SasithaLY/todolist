@@ -18,7 +18,7 @@ class TodoInput extends Component {
                                 <i className="fa fa-book" />
                             </div>
                         </div>
-                        <input type="text" className="form-control" value={item} onChange={handleChange} placeholder={"Enter a to do item"}/>
+                        <input type="text" className="form-control" value={item} onChange={handleChange} placeholder={"Enter a to do item"} required/>
                     </div>
                     <div className="pull-left">
                         {

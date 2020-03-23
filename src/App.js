@@ -2,30 +2,30 @@ import React, {Component} from 'react';
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { v4 as uuidv4 } from 'uuid';
+import {v4 as uuidv4} from 'uuid';
 
 class App extends Component {
     state = {
-        items:[],
-        id:uuidv4(),
-        item:'',
-        editItem:false,
+        items: [],
+        id: uuidv4(),
+        item: '',
+        editItem: false,
     };
 
-    handleChange = (e) =>{
+    handleChange = (e) => {
         this.setState({
-            item:e.target.value
+            item: e.target.value
         });
     };
 
-    handleSubmit = (e) =>{
+    handleSubmit = (e) => {
         e.preventDefault();
 
         const newItem = {
-            id:this.state.id,
-            title:this.state.item,
-            time:Date.now(),
-            isComplete:false
+            id: this.state.id,
+            title: this.state.item,
+            time: Date.now(),
+            isComplete: false
         };
 
         const updatedItems = [...this.state.items, newItem];
@@ -35,95 +35,102 @@ class App extends Component {
         });
 
         this.setState({
-            items:updatedItems,
-            item:'',
-            id:uuidv4(),
-            editItem:false,
+            items: updatedItems,
+            item: '',
+            id: uuidv4(),
+            editItem: false,
         });
 
         console.log(this.state.items);
     };
 
-    clearList = ()=>{
+    clearList = () => {
         this.setState({
-            items:[]
+            items: []
         })
     };
 
-    handleDelete = (id)=>{
-      const filteredItems = this.state.items.filter(item => item.id !== id);
-      this.setState({
-          items:filteredItems
-      })
-    };
-
-    handleSelection = (id) =>{
-       //const filteredItems = this.state.items.filter(item => item.id !== id);
-
-       const selectedItem = this.state.items.find(item => item.id === id);
-
+    handleDelete = (id) => {
+        const filteredItems = this.state.items.filter(item => item.id !== id);
         this.setState({
-            items:this.state.items,
-            item:selectedItem.title,
-            editItem:true,
-            id:id
+            items: filteredItems
         })
     };
 
-    handleUpdate = (e) =>{
+    handleSelection = (id) => {
+        //const filteredItems = this.state.items.filter(item => item.id !== id);
+
+        const selectedItem = this.state.items.find(item => item.id === id);
+
+        this.setState({
+            items: this.state.items,
+            item: selectedItem.title,
+            editItem: true,
+            id: id
+        })
+    };
+
+    handleUpdate = (e) => {
         e.preventDefault();
         const itemList = this.state.items;
         const selectedItem = this.state.items.find(item => item.id === this.state.id);
         const index = this.state.items.findIndex(item => item.id === this.state.id);
 
-        const newItem = {
-            id:this.state.id,
-            title:this.state.item,
-            time:selectedItem.time,
-            editItem: false,
-            isComplete: false
-        };
-
-        itemList[index] = newItem;
+        if (index >= 0) {
+            const newItem = {
+                id: this.state.id,
+                title: this.state.item,
+                time: selectedItem.time,
+                editItem: false,
+                isComplete: false
+            };
+            itemList[index] = newItem;
+        }
 
         itemList.sort(function (a, b) {
             return b.time - a.time;
         });
-
-        this.setState({
-            items:itemList,
-            id:uuidv4(),
-            item:'',
-            editItem:false
-        });
-
-        console.log(this.state.items);
-    };
-
-    handleComplete = ()=>{
-        const itemList = this.state.items;
-        const selectedItem = this.state.items.find(item => item.id === this.state.id);
-        const index = this.state.items.findIndex(item => item.id === this.state.id);
-
-        const newItem = {
-            id:selectedItem.id,
-            title:selectedItem.title,
-            time:selectedItem.time,
-            editItem: false,
-            isComplete: true
-        };
-
-        itemList[index] = newItem;
 
         itemList.sort(function (a, b) {
             return a.isComplete - b.isComplete;
         });
 
         this.setState({
-            items:itemList,
-            id:uuidv4(),
-            item:'',
-            editItem:false
+            items: itemList,
+            id: uuidv4(),
+            item: '',
+            editItem: false
+        });
+
+        console.log(this.state.items);
+    };
+
+    handleComplete = () => {
+        const itemList = this.state.items;
+        const selectedItem = this.state.items.find(item => item.id === this.state.id);
+        const index = this.state.items.findIndex(item => item.id === this.state.id);
+
+        if (index >= 0) {
+            const newItem = {
+                id: selectedItem.id,
+                title: selectedItem.title,
+                time: selectedItem.time,
+                editItem: false,
+                isComplete: true
+            };
+
+            itemList[index] = newItem;
+        }
+
+        itemList.sort(function (a, b) {
+            return a.isComplete - b.isComplete;
+        });
+
+        this.setState({
+            items: itemList,
+            id: uuidv4(),
+            item: '',
+            editItem: false
         });
 
         console.log(this.state.items);
@@ -133,25 +140,43 @@ class App extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-10 mx-auto mt-4">
+                    <div className="col mx-auto mt-4">
                         <h1 className="text-capitalize text-center">
                             To-do App
                         </h1>
-                        <TodoInput
-                            item={this.state.item}
-                            id={this.state.id}
-                            handleChange={this.handleChange}
-                            handleSubmit={this.handleSubmit}
-                            handleUpdate={this.handleUpdate}
-                            handleComplete={this.handleComplete}
-                            editItem={this.state.editItem}
-                        />
-                        <TodoList
-                            items={this.state.items}
-                            clearList={this.clearList}
-                            handleDelete={this.handleDelete}
-                            handleSelection={this.handleSelection}
-                        />
+                        <div className="row">
+                            <div className="card card-body mt-3">
+                                <p>To Add an Item to the list, just type the text in the Add Item input field and click
+                                    Add button. To select an item to Edit, just click the icon with the pencil and
+                                    notebook and to do will display on the input field. Then click edit button to edit
+                                    the item. To delete an item click the trash bin icon next to the to do item. To mark
+                                    the To Do as complete, click on the mark complete button after selecting a item to
+                                    be edited.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <TodoInput
+                                    item={this.state.item}
+                                    id={this.state.id}
+                                    handleChange={this.handleChange}
+                                    handleSubmit={this.handleSubmit}
+                                    handleUpdate={this.handleUpdate}
+                                    handleComplete={this.handleComplete}
+                                    editItem={this.state.editItem}
+                                />
+                            </div>
+                            <div className="col-md-6">
+                                <TodoList
+                                    items={this.state.items}
+                                    clearList={this.clearList}
+                                    handleDelete={this.handleDelete}
+                                    handleSelection={this.handleSelection}
+                                />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
