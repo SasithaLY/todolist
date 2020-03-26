@@ -12,13 +12,13 @@ class App extends Component {
         editItem: false,
     };
 
-    handleChange = (e) => {
+    changeTitle = (e) => {
         this.setState({
             item: e.target.value
         });
     };
 
-    handleSubmit = (e) => {
+    submitItem = (e) => {
         e.preventDefault();
 
         const newItem = {
@@ -41,7 +41,7 @@ class App extends Component {
             editItem: false,
         });
 
-        console.log(this.state.items);
+        //console.log(this.state.items);
     };
 
     clearList = () => {
@@ -50,14 +50,14 @@ class App extends Component {
         })
     };
 
-    handleDelete = (id) => {
+    deleteItem = (id) => {
         const filteredItems = this.state.items.filter(item => item.id !== id);
         this.setState({
             items: filteredItems
         })
     };
 
-    handleSelection = (id) => {
+    selectItem = (id) => {
         //const filteredItems = this.state.items.filter(item => item.id !== id);
 
         const selectedItem = this.state.items.find(item => item.id === id);
@@ -70,7 +70,7 @@ class App extends Component {
         })
     };
 
-    handleUpdate = (e) => {
+    updateItem = (e) => {
         e.preventDefault();
         const itemList = this.state.items;
         const selectedItem = this.state.items.find(item => item.id === this.state.id);
@@ -102,10 +102,10 @@ class App extends Component {
             editItem: false
         });
 
-        console.log(this.state.items);
+        //console.log(this.state.items);
     };
 
-    handleComplete = () => {
+    completeItem = () => {
         const itemList = this.state.items;
         const selectedItem = this.state.items.find(item => item.id === this.state.id);
         const index = this.state.items.findIndex(item => item.id === this.state.id);
@@ -133,7 +133,7 @@ class App extends Component {
             editItem: false
         });
 
-        console.log(this.state.items);
+        //console.log(this.state.items);
     };
 
     render() {
@@ -158,10 +158,10 @@ class App extends Component {
                                 <TodoInput
                                     item={this.state.item}
                                     id={this.state.id}
-                                    handleChange={this.handleChange}
-                                    handleSubmit={this.handleSubmit}
-                                    handleUpdate={this.handleUpdate}
-                                    handleComplete={this.handleComplete}
+                                    changeTitle={this.changeTitle}
+                                    submitItem={this.submitItem}
+                                    updateItem={this.updateItem}
+                                    completeItem={this.completeItem}
                                     editItem={this.state.editItem}
                                 />
                             </div>
@@ -169,8 +169,8 @@ class App extends Component {
                                 <TodoList
                                     items={this.state.items}
                                     clearList={this.clearList}
-                                    handleDelete={this.handleDelete}
-                                    handleSelection={this.handleSelection}
+                                    deleteItem={this.deleteItem}
+                                    selectItem={this.selectItem}
                                 />
                             </div>
                         </div>

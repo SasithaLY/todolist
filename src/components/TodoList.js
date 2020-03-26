@@ -4,7 +4,7 @@ import TodoItem from "./TodoItem";
 class TodoList extends Component {
     render() {
 
-        const {items, clearList, handleDelete, handleSelection} = this.props;
+        const {items, clearList, deleteItem, selectItem} = this.props;
 
         return (
             <div className="card card-body my-5">
@@ -22,8 +22,8 @@ class TodoList extends Component {
                                 key={item.id}
                                 title={item.title}
                                 complete={item.isComplete}
-                                handleDelete={()=>handleDelete(item.id)}
-                                handleSelection={()=>handleSelection(item.id)}
+                                deleteItem={()=>deleteItem(item.id)}
+                                selectItem={()=>selectItem(item.id)}
                             />
                         )
                     })
