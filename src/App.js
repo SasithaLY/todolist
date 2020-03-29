@@ -3,6 +3,7 @@ import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {v4 as uuidv4} from 'uuid';
+import swal from '@sweetalert/with-react'
 
 class App extends Component {
     state = {
@@ -45,16 +46,53 @@ class App extends Component {
     };
 
     clearList = () => {
-        this.setState({
-            items: []
+        swal({
+            title: "Are you sure?",
+            text: "Once cleared the list, you will not be able to recover this list!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
         })
+            .then((willDelete) => {
+                if (willDelete) {
+
+                    this.setState({
+                        items: []
+                    });
+
+                    swal("Item list has been cleared!", {
+                        icon: "success",
+                    });
+                } else {
+                    //swal("Item not deleted!");
+                }
+            });
     };
 
     deleteItem = (id) => {
-        const filteredItems = this.state.items.filter(item => item.id !== id);
-        this.setState({
-            items: filteredItems
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this item!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
         })
+            .then((willDelete) => {
+                if (willDelete) {
+                    const filteredItems = this.state.items.filter(item => item.id !== id);
+                    this.setState({
+                        items: filteredItems
+                    });
+
+                    swal("Item has been deleted!", {
+                        icon: "success",
+                    });
+                } else {
+                    //swal("Item not deleted!");
+                }
+            });
+
+
     };
 
     selectItem = (id) => {
